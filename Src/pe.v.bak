@@ -1,0 +1,67 @@
+module pe (output reg [3:0] op, output reg valid, input [15:0] ip);
+reg [4:0] temp1;
+integer temp2=16;
+//always @ (*)
+//begin  
+//  while (temp1===5'bxxxxx)
+//  begin
+//if (ip[temp2-1]==1)
+//	temp1={temp2-1,1'b1};
+//else
+//	temp2=temp2-1;
+//end
+always @ ip
+begin
+				if (ip[15]==1) 
+				temp1=11111;
+				else if (ip[14]==1)
+				temp1=11101;
+				else if (ip[13]==1)
+				temp1=11011;
+				else if (ip[12]==1)
+				temp1=11001;
+				else if (ip[11]==1)
+				temp1=10111;
+				else if (ip[10]==1)
+				temp1=10101;
+				else if (ip[9]==1)
+				temp1=10011;
+				else if (ip[8]==1)
+				temp1=10001;
+				else if (ip[7]==1)
+				temp1=01111;
+				else if (ip[6]==1)
+				temp1=01101;
+				else if (ip[5]==1)
+				temp1=01011;
+				else if (ip[4]==1)
+				temp1=01001;
+				else if (ip[3]==1)
+				temp1=00111;
+				else if (ip[2]==1)
+				temp1=00101;
+				else if (ip[1]==1)
+				temp1=00011;
+				else if (ip[0]==1)
+				temp1=00001;
+				
+op=temp1[4:1];
+valid=temp1[0];
+end
+
+endmodule
+
+
+//---------------------TB------------------------//
+module tb ();
+wire  [3:0] top;
+wire tvalid;
+reg [15:0] tip;
+
+ pe p1 (top, tvalid, tip);
+ 
+ always 
+ begin
+  tip=$random; #10;
+end
+endmodule

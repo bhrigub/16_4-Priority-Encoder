@@ -1,0 +1,350 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: pe.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "pe.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "pe"
+Output Format                      : NGC
+Target Device                      : xc4vlx25-10-ff668
+
+---- Source Options
+Top Module Name                    : pe
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 32
+Number of Regional Clock Buffers   : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../Src/pe.v" in library work
+Module <pe> compiled
+Module <tb> compiled
+No errors in compilation
+Analysis of file <"pe.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <pe> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <pe>.
+WARNING:Xst:905 - "../../Src/pe.v" line 14: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <temp1>
+Module <pe> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <pe>.
+    Related source file is "../../Src/pe.v".
+WARNING:Xst:1872 - Variable <temp2> is used but never assigned.
+WARNING:Xst:646 - Signal <temp1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+INFO:Xst:1608 - Relative priorities of control signals on register <Q> differ from those commonly found in the selected device family. This will result in additional logic around the register.
+WARNING:Xst:737 - Found 5-bit latch for signal <$old_temp1_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+Unit <pe> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Latches                                              : 1
+ 5-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Latches                                              : 1
+ 5-bit latch                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch _old_temp1_1_0 hinder the constant cleaning in the block pe.
+   You should achieve better results by setting this init to 1.
+
+Optimizing unit <pe> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block pe, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : pe.ngr
+Top Level Output File Name         : pe
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 21
+
+Cell Usage :
+# BELS                             : 28
+#      GND                         : 1
+#      LUT3                        : 4
+#      LUT4                        : 22
+#      VCC                         : 1
+# FlipFlops/Latches                : 5
+#      LDCP                        : 5
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 20
+#      IBUF                        : 15
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 4vlx25ff668-10 
+
+ Number of Slices:                       15  out of  10752     0%  
+ Number of 4 input LUTs:                 26  out of  21504     0%  
+ Number of IOs:                          21
+ Number of bonded IOBs:                  21  out of    448     4%  
+    IOB Flip Flops:                       5
+ Number of GCLKs:                         1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+ip<0>                              | BUFGP                  | 5     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+---------------------------------------------------+------------------------+-------+
+Control Signal                                     | Buffer(FF name)        | Load  |
+---------------------------------------------------+------------------------+-------+
+N0(XST_GND:G)                                      | NONE(_old_temp1_1_0)   | 1     |
+_old_temp1_1_0__or0000(_old_temp1_1_0__or00001:O)  | NONE(_old_temp1_1_0)   | 1     |
+_old_temp1_1_1__or0000(_old_temp1_1_1__or00001:O)  | NONE(_old_temp1_1_1)   | 1     |
+_old_temp1_1_1__or0001(_old_temp1_1_1__or00011:O)  | NONE(_old_temp1_1_1)   | 1     |
+_old_temp1_1_2__and0000(_old_temp1_1_2__and00001:O)| NONE(_old_temp1_1_2)   | 1     |
+_old_temp1_1_2__or0000(_old_temp1_1_2__or00001:O)  | NONE(_old_temp1_1_2)   | 1     |
+_old_temp1_1_3__and0000(_old_temp1_1_3__and00001:O)| NONE(_old_temp1_1_3)   | 1     |
+_old_temp1_1_3__or0000(_old_temp1_1_3__or00001:O)  | NONE(_old_temp1_1_3)   | 1     |
+_old_temp1_1_4__and0000(_old_temp1_1_4__and00001:O)| NONE(_old_temp1_1_4)   | 1     |
+_old_temp1_1_4__or0000(_old_temp1_1_4__or00001:O)  | NONE(_old_temp1_1_4)   | 1     |
+---------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -10
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 4.483ns
+   Maximum output required time after clock: 4.790ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'ip<0>'
+  Total number of paths / destination ports: 41 / 4
+-------------------------------------------------------------------------
+Offset:              4.483ns (Levels of Logic = 5)
+  Source:            ip<4> (PAD)
+  Destination:       _old_temp1_1_1 (LATCH)
+  Destination Clock: ip<0> falling
+
+  Data Path: ip<4> to _old_temp1_1_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.965   0.755  ip_4_IBUF (ip_4_IBUF)
+     LUT4:I0->O            1   0.195   0.585  old_temp1_1_mux0000<3>11 (old_temp1_1_mux0000<3>11)
+     LUT4:I2->O            1   0.195   0.688  old_temp1_1_mux0000<3>64_SW0 (N19)
+     LUT4:I1->O            1   0.195   0.688  old_temp1_1_mux0000<3>64 (old_temp1_1_mux0000<3>64)
+     LUT4:I1->O            3   0.195   0.000  old_temp1_1_mux0000<3>111 (old_temp1_1_mux0000<3>)
+     LDCP:D                    0.022          _old_temp1_1_1
+    ----------------------------------------
+    Total                      4.483ns (1.767ns logic, 2.716ns route)
+                                       (39.4% logic, 60.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ip<0>'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              4.790ns (Levels of Logic = 1)
+  Source:            _old_temp1_1_0 (LATCH)
+  Destination:       valid (PAD)
+  Source Clock:      ip<0> falling
+
+  Data Path: _old_temp1_1_0 to valid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCP:G->Q             1   0.473   0.360  _old_temp1_1_0 (_old_temp1_1_0)
+     OBUF:I->O                 3.957          valid_OBUF (valid)
+    ----------------------------------------
+    Total                      4.790ns (4.430ns logic, 0.360ns route)
+                                       (92.5% logic, 7.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.01 secs
+ 
+--> 
+
+Total memory usage is 211876 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    5 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

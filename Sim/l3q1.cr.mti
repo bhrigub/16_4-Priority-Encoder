@@ -1,0 +1,9 @@
+C:/Users/Admin/Desktop/VERILOG/Lab_Work/B/Lab3/Q1/Src/pe.v {1 {vlog -work work -vopt {C:\Users\Admin\Desktop\VERILOG\Lab_Work\B\Lab3\Q1\Src\pe.v}
+QuestaSim vlog 10.1d Compiler 2012.11 Nov  1 2012
+-- Compiling module pe
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}}
